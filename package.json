@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ],
+    "nohoist": [
+      "**/react",
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native**",
+      "**/@react-navigation/**"
+    ]
+  },
+  "scripts": {
+    "lerna:changed": "npx lerna changed",
+    "lerna:version": "npx lerna version",
+    "lerna:bootstrap": "npx lerna bootstrap --use-workspaces",
+    "firstapp:start": "lerna --scope=@monorepo/firstapp run start --stream --",
+    "firstapp:android": "lerna --scope=@monorepo/firstapp run android --stream --",
+    "firstapp:ios": "lerna --scope=@monorepo/firstapp run ios --stream --"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "typescript": "^4.3.5"
+  }
+}
